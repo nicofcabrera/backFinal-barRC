@@ -1,7 +1,7 @@
 const express = require('express');
 const route = express.Router();
 const {body} = require('express-validator')
-const { createUser, getUsers, deleteUsers, estadoUser, loginUser } = require('../controllers/users')
+const { createUser, getUsers, deleteUsers, estadoUser, loginUser, roleUser } = require('../controllers/users')
 const {jwtValidator} = require('../middleware/jwt')
 
 route.post('/post-user',
@@ -15,6 +15,7 @@ route.post('/userlogin',
 , loginUser)
 route.get('/get-users', getUsers)
 route.patch('/patch-users', estadoUser)
+route.patch('/role-users', roleUser)
 route.delete('/:userId', deleteUsers)
 
 module.exports = route;

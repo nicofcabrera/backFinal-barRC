@@ -12,7 +12,7 @@ const createUser = async (req, res) => {
     nombre,
     email,
     password : pwEncripted,
-    estado: 'Pendiente',
+    estado: 'Activo',
     rol: 'user'
   })
 
@@ -85,4 +85,12 @@ const estadoUser = async (req, res) => {
   })
 }
 
-module.exports = {createUser, getUsers, deleteUsers, estadoUser, loginUser}
+const roleUser = async (req, res) => {
+  const { id, newRole } = req.body;
+  await User.findByIdAndUpdate(id, { rol: newRole })
+  res.json({
+    mensaje: `User modificado`
+  })
+}
+
+module.exports = {createUser, getUsers, deleteUsers, estadoUser, loginUser, roleUser}

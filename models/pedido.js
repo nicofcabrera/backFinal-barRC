@@ -3,7 +3,7 @@ const { Schema, model } = require('mongoose');
 const pedido = new Schema({
   usuario: String,
   fecha:  String,
-  menu: String,
+  menu: Array,
   estado: String
 })
 

@@ -6,7 +6,7 @@ const createPedido = async (req, res) => {
     usuario,
     fecha,
     menu,
-    estado
+    estado : 'Pendiente'
   })
 
   await nuevoPedido.save()

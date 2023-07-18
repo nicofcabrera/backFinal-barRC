@@ -11,7 +11,7 @@ const jwtValidator = async (req, res, next) => {
     }
   } catch (error) {
     res.json({
-      mensaje: 'No autorizado'
+      mensaje: 'No tenes permiso para esta accion.'
     })
   }
 }

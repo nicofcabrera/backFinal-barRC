@@ -1,22 +1,26 @@
 const Menu = require('../models/menu');
+const jwt = require('jsonwebtoken');
 
 const createMenu = async (req, res) => {
-  const { nombre, estado, precio, detalle, categoria,img,cantidad } = req.body;
-  const nuevoMenu = new Menu({
-    nombre,
-    estado,
-    precio,
-    detalle,
-    categoria,
-    img,
-    cantidad: 1
-  })
-
-  await nuevoMenu.save()
-
-  res.json({
-    mensaje: `Comida nueva agregada`
-  })
+  try {
+    const { nombre, precio, detalle, categoria,img } = req.body;
+    const nuevoMenu = new Menu({
+      nombre,
+      precio,
+      detalle,
+      categoria,
+      img,
+      cantidad: 1
+    })
+  
+    await nuevoMenu.save()
+  
+    res.json({
+      mensaje: `Comida nueva agregada`
+    })
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 const getMenu = async (req, res) => {

@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 
 
 const createUser = async (req, res) => {
-  const { nombre, email, password, estado, rol } = req.body;
+  const { nombre, email, password } = req.body;
   const saltRound = 15
   const pwEncripted = bcrypt.hashSync(password, saltRound)
 

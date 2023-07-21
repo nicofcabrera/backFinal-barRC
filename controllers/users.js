@@ -31,7 +31,7 @@ const loginUser = async (req, res) => {
 
     if (!user) {
       return res.json({
-      message: 'ERROR de mail (provisorio'
+      message: 'Algunos de los datos es incorrecto'
     })
     } 
     
@@ -46,7 +46,7 @@ const loginUser = async (req, res) => {
       }) 
     } else {
     res.json({
-      message: 'ERROR pw (provisiorio)',
+      message: 'Algunos de los datos es incorrecto',
     })
   }
     } catch (error) {

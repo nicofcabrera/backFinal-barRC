@@ -1,8 +1,7 @@
 const express = require('express');
 const route = express.Router();
-const {body} = require('express-validator')
-const { createUser, getUsers, deleteUsers, estadoUser, loginUser, roleUser } = require('../controllers/users')
-const {jwtValidator} = require('../middleware/jwt')
+const { body } = require('express-validator');
+const { createUser, getUsers, deleteUsers, estadoUser, loginUser, roleUser } = require('../controllers/users');
 
 route.post('/post-user',
   body('nombre').trim().escape().isAlpha('es-ES', {ignore:' '}).not().isEmpty().isLength({min: 3,max: 25}).withMessage('Nombre invalido'),
